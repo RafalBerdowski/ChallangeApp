@@ -1,4 +1,4 @@
-﻿int number = 992373456;
+﻿int number = 792373456;
 
 string numberInString = number.ToString();
 char[] letters = numberInString.ToArray();
