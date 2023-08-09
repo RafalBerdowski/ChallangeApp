@@ -1,39 +1,42 @@
-﻿int number = 992373456;
+﻿using ChallangeApp;
 
-string numberInString = number.ToString();
-char[] letters = numberInString.ToArray();
+Employee employee1 = new Employee("Ola", "Kmicic", 26);
+Employee employee2 = new Employee("Max", "Manzo", 23);
+Employee employee3 = new Employee("Asia", "Wist", 49);
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
 
-foreach (char c in letters)
+employee1.AddScore(5);
+employee1.AddScore(7);
+employee1.AddScore(9);
+employee1.AddScore(3);
+
+employee2.AddScore(4);
+employee2.AddScore(6);
+employee2.AddScore(8);
+employee2.AddScore(10);
+
+employee3.AddScore(4);
+employee3.AddScore(6);
+employee3.AddScore(8);
+employee3.AddScore(2);
+
+List<Employee> employees = new List<Employee>()
 {
-    if (c == '0') {counter0++; }
-    else if (c == '1') { counter1++; }
-    else if (c == '2') { counter2++; }
-    else if (c == '3') { counter3++; }
-    else if (c == '4') { counter4++; }
-    else if (c == '5') { counter5++; }
-    else if (c == '6') { counter6++; }
-    else if (c == '7') { counter7++; }
-    else if (c == '8') { counter8++; }
-    else if (c == '9') { counter9++; }
+    employee1, employee2, employee3
+};
+
+int maxResult = -1;
+Employee employeeWithMaxResult = null;
+
+foreach (Employee employee in employees) 
+{
+    if (employee.Result > maxResult)
+    {
+        employeeWithMaxResult =(Employee)employee;
+        maxResult = employee.Result;
+    }
 }
-Console.WriteLine("0 => " + counter0);
-Console.WriteLine("1 => " + counter1);
-Console.WriteLine("2 => " + counter2);
-Console.WriteLine("3 => " + counter3);
-Console.WriteLine("4 => " + counter4);
-Console.WriteLine("5 => " + counter5);
-Console.WriteLine("6 => " + counter6);
-Console.WriteLine("7 => " + counter7);
-Console.WriteLine("8 => " + counter8);
-Console.WriteLine("9 => " + counter9);
+Console.WriteLine("Pracownik " + employeeWithMaxResult.Name + " " + "" + employeeWithMaxResult.Surname + ", " + "" + (employeeWithMaxResult.Age + " " + "lat, ") + "" + "uzyskal najlepszy wynik: " + "" + employeeWithMaxResult.Result + " pkt. ");
+
+
+
